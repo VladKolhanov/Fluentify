@@ -41,7 +41,6 @@ export default [
       /* Rules from eslint/js */
       "no-duplicate-imports": "error",
       "no-template-curly-in-string": "error",
-      "dot-notation": "error",
       eqeqeq: "error",
       "no-console": ["warn", { allow: ["warn", "error"] }],
       "no-eval": "error",
@@ -50,6 +49,7 @@ export default [
       "no-var": "error",
       "prefer-arrow-callback": "error",
       "prefer-template": "error",
+      "no-unreachable": "error",
 
       /* Rules from eslint-plugin-react */
       "react/boolean-prop-naming": [
@@ -93,6 +93,7 @@ export default [
       "@typescript-eslint/promise-function-async": "error",
       "@typescript-eslint/unified-signatures": "error",
       "@typescript-eslint/use-unknown-in-catch-callback-variable": "error",
+      "@typescript-eslint/consistent-type-imports": "error",
     },
   },
 ];
