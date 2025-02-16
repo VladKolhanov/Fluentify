@@ -50,6 +50,28 @@ export default [
       "prefer-arrow-callback": "error",
       "prefer-template": "error",
       "no-unreachable": "error",
+      "no-restricted-properties": [
+        "error",
+        {
+          object: "process",
+          property: "env",
+          message:
+            "Use `import { env } from '@/configs/env'` instead to ensure validated types.",
+        },
+      ],
+      "no-restricted-imports": [
+        "error",
+        {
+          paths: [
+            {
+              name: "process",
+              importNames: ["env"],
+              message:
+                "Use `import { env } from '@/configs/env'` instead to ensure validated types.",
+            },
+          ],
+        },
+      ],
 
       /* Rules from eslint-plugin-react */
       "react/boolean-prop-naming": [
