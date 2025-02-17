@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 
-import { breeSerif, lato } from "@/ui/fonts";
 import { type LayoutProps } from "@/types/app";
+import { breeSerif, lato } from "@/ui/fonts";
+
 import "@/styles/main.css";
 
 export const metadata: Metadata = {

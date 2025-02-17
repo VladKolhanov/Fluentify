@@ -5,6 +5,10 @@ import nextPlugin from "@next/eslint-plugin-next";
 import reactPlugin from "eslint-plugin-react";
 import reactHooksPlugin from "eslint-plugin-react-hooks";
 import jsxA11y from "eslint-plugin-jsx-a11y";
+import checkFile from "eslint-plugin-check-file";
+import importPlugin from "eslint-plugin-import";
+import simpleImportSort from "eslint-plugin-simple-import-sort";
+import tailwind from "eslint-plugin-tailwindcss";
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
@@ -12,9 +16,20 @@ export default [
   {
     ignores: ["eslint.config.mjs", "node_modules"],
   },
+  {
+    settings: {
+      "import/resolver": {
+        typescript: {
+          alwaysTryTypes: true,
+        },
+      },
+    },
+  },
   { languageOptions: { globals: { ...globals.browser, ...globals.node } } },
   pluginJs.configs.recommended,
   jsxA11y.flatConfigs.recommended,
+  importPlugin.flatConfigs.recommended,
+  ...tailwind.configs["flat/recommended"],
   ...tseslint.configs.recommendedTypeChecked,
   {
     languageOptions: {
@@ -29,6 +44,8 @@ export default [
       react: reactPlugin,
       "react-hooks": reactHooksPlugin,
       "@next/next": nextPlugin,
+      "check-file": checkFile,
+      "simple-import-sort": simpleImportSort,
     },
     rules: {
       /** Recommended rules */
@@ -116,6 +133,42 @@ export default [
       "@typescript-eslint/unified-signatures": "error",
       "@typescript-eslint/use-unknown-in-catch-callback-variable": "error",
       "@typescript-eslint/consistent-type-imports": "error",
+
+      /* Rules from eslint-plugin-check-file */
+      "check-file/filename-naming-convention": [
+        "error",
+        {
+          "**/*.{ts,tsx}": "KEBAB_CASE",
+        },
+        {
+          ignoreMiddleExtensions: true,
+        },
+      ],
+      "check-file/folder-naming-convention": [
+        "error",
+        {
+          "src/app/**/*": "NEXT_JS_APP_ROUTER_CASE",
+          "src/!(app)/**/*": "KEBAB_CASE",
+        },
+      ],
+
+      /* Rules from eslint-plugin-simple-import-sort and eslint-plugin-import */
+      "simple-import-sort/imports": [
+        "error",
+        {
+          groups: [
+            ["^\\uFEFF?", '^"use (client|server)"'],
+            ["^@?[a-z]"],
+            ["^@/(?!styles)"],
+            ["^\\."],
+            ["^@/styles", "^.+\\.s?css$"],
+          ],
+        },
+      ],
+      "simple-import-sort/exports": "error",
+      "import/first": "error",
+      "import/newline-after-import": "error",
+      "import/no-duplicates": "error",
     },
   },
 ];
