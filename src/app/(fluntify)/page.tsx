@@ -1,3 +1,3 @@
 export default function Home() {
-  return <p>Fluentify</p>;
+	return <p>Fluentify</p>
 }
