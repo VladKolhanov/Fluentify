@@ -11,9 +11,25 @@ import simpleImportSort from 'eslint-plugin-simple-import-sort'
 import tailwind from 'eslint-plugin-tailwindcss'
 import eslintConfigPrettier from 'eslint-config-prettier'
 import eslintPluginPrettier from 'eslint-plugin-prettier/recommended'
+import jest from 'eslint-plugin-jest'
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
+	{
+		files: ['**/*.test.{js,mjs,cjs,ts,jsx,tsx}'],
+		...jest.configs['flat/recommended'],
+		rules: {
+			...jest.configs['flat/recommended'].rules,
+			'jest/consistent-test-it': [
+				'warn',
+				{
+					fn: 'it',
+					withinDescribe: 'it',
+				},
+			],
+		},
+	},
+
 	{ files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'] },
 	{
 		ignores: ['eslint.config.mjs', 'node_modules', '.lintstagedrc.js'],
@@ -27,7 +43,11 @@ export default [
 			},
 		},
 	},
-	{ languageOptions: { globals: { ...globals.browser, ...globals.node } } },
+	{
+		languageOptions: {
+			globals: { ...globals.browser, ...globals.node, ...globals.jest },
+		},
+	},
 	pluginJs.configs.recommended,
 	jsxA11y.flatConfigs.recommended,
 	importPlugin.flatConfigs.recommended,
@@ -47,9 +67,9 @@ export default [
 		plugins: {
 			react: reactPlugin,
 			'react-hooks': reactHooksPlugin,
-			'@next/next': nextPlugin,
 			'check-file': checkFile,
 			'simple-import-sort': simpleImportSort,
+			'@next/next': nextPlugin,
 		},
 		rules: {
 			/** Recommended rules */
@@ -173,7 +193,7 @@ export default [
 			'import/newline-after-import': 'error',
 			'import/no-duplicates': 'error',
 
-			/*Rules from eslint-plugin-prettier */
+			/* Rules from eslint-plugin-prettier */
 			'prettier/prettier': 'error',
 		},
 	},
