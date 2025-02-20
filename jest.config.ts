@@ -9,6 +9,7 @@ const config: Config = {
 	bail: 3,
 	clearMocks: true,
 	globals: {},
+	passWithNoTests: true,
 	collectCoverage: true,
 	collectCoverageFrom: [
 		'<rootDir>/src/**/*.{js,jsx,ts,tsx}',
@@ -24,7 +25,7 @@ const config: Config = {
 		'<rootDir>/src/ui/icons/',
 		'<rootDir>/src/ui/animations/',
 	],
-	coverageDirectory: '<rootDir>/coverage',
+	coverageDirectory: '<rootDir>/reports/coverage',
 	coverageProvider: 'v8',
 	coverageThreshold: {
 		global: {

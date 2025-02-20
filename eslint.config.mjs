@@ -12,6 +12,8 @@ import tailwind from 'eslint-plugin-tailwindcss'
 import eslintConfigPrettier from 'eslint-config-prettier'
 import eslintPluginPrettier from 'eslint-plugin-prettier/recommended'
 import jest from 'eslint-plugin-jest'
+import playwright from 'eslint-plugin-playwright'
+import storybook from 'eslint-plugin-storybook'
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
@@ -30,9 +32,28 @@ export default [
 		},
 	},
 
+	{
+		files: ['e2e/**'],
+		...playwright.configs['flat/recommended'],
+		rules: {
+			...playwright.configs['flat/recommended'].rules,
+		},
+	},
+
+	{
+		files: ['**/*.stories.@(ts|tsx|js|jsx|mjs|cjs)'],
+		...storybook.configs['flat/recommended'],
+		rules: {},
+	},
+
 	{ files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'] },
 	{
-		ignores: ['eslint.config.mjs', 'node_modules', '.lintstagedrc.js'],
+		ignores: [
+			'.storybook',
+			'**/*.config.{js,mjs,cjs,ts,jsx,tsx}',
+			'node_modules',
+			'.lintstagedrc.js',
+		],
 	},
 	{
 		settings: {
