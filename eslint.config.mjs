@@ -15,36 +15,70 @@ import jest from 'eslint-plugin-jest'
 import playwright from 'eslint-plugin-playwright'
 import storybook from 'eslint-plugin-storybook'
 
+const disallowProcessEnv = {
+	files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
+	ignores: ['src/configs/env.ts'],
+	rules: {
+		'no-restricted-properties': [
+			'error',
+			{
+				object: 'process',
+				property: 'env',
+				message:
+					"Use `import { env } from '@/configs/env'` instead to ensure validated types.",
+			},
+		],
+		'no-restricted-imports': [
+			'error',
+			{
+				paths: [
+					{
+						name: 'process',
+						importNames: ['env'],
+						message:
+							"Use `import { env } from '@/configs/env'` instead to ensure validated types.",
+					},
+				],
+			},
+		],
+	},
+}
+
+const jestConfig = {
+	files: ['**/*.test.{js,mjs,cjs,ts,jsx,tsx}'],
+	...jest.configs['flat/recommended'],
+	rules: {
+		...jest.configs['flat/recommended'].rules,
+		'jest/consistent-test-it': [
+			'warn',
+			{
+				fn: 'it',
+				withinDescribe: 'it',
+			},
+		],
+	},
+}
+
+const playwrightConfig = {
+	files: ['e2e/**'],
+	...playwright.configs['flat/recommended'],
+	rules: {
+		...playwright.configs['flat/recommended'].rules,
+	},
+}
+
+const storybookConfig = {
+	files: ['**/*.stories.@(ts|tsx|js|jsx|mjs|cjs)'],
+	...storybook.configs['flat/recommended'],
+	rules: {},
+}
+
 /** @type {import('eslint').Linter.Config[]} */
 export default [
-	{
-		files: ['**/*.test.{js,mjs,cjs,ts,jsx,tsx}'],
-		...jest.configs['flat/recommended'],
-		rules: {
-			...jest.configs['flat/recommended'].rules,
-			'jest/consistent-test-it': [
-				'warn',
-				{
-					fn: 'it',
-					withinDescribe: 'it',
-				},
-			],
-		},
-	},
-
-	{
-		files: ['e2e/**'],
-		...playwright.configs['flat/recommended'],
-		rules: {
-			...playwright.configs['flat/recommended'].rules,
-		},
-	},
-
-	{
-		files: ['**/*.stories.@(ts|tsx|js|jsx|mjs|cjs)'],
-		...storybook.configs['flat/recommended'],
-		rules: {},
-	},
+	disallowProcessEnv,
+	jestConfig,
+	playwrightConfig,
+	storybookConfig,
 
 	{ files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'] },
 	{
@@ -111,28 +145,6 @@ export default [
 			'no-var': 'error',
 			'prefer-template': 'error',
 			'no-unreachable': 'error',
-			'no-restricted-properties': [
-				'error',
-				{
-					object: 'process',
-					property: 'env',
-					message:
-						"Use `import { env } from '@/configs/env'` instead to ensure validated types.",
-				},
-			],
-			'no-restricted-imports': [
-				'error',
-				{
-					paths: [
-						{
-							name: 'process',
-							importNames: ['env'],
-							message:
-								"Use `import { env } from '@/configs/env'` instead to ensure validated types.",
-						},
-					],
-				},
-			],
 
 			/* Rules from eslint-plugin-react */
 			'react/boolean-prop-naming': [
