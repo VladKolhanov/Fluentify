@@ -8,7 +8,6 @@ import jsxA11y from 'eslint-plugin-jsx-a11y'
 import checkFile from 'eslint-plugin-check-file'
 import importPlugin from 'eslint-plugin-import'
 import simpleImportSort from 'eslint-plugin-simple-import-sort'
-import tailwind from 'eslint-plugin-tailwindcss'
 import eslintConfigPrettier from 'eslint-config-prettier'
 import eslintPluginPrettier from 'eslint-plugin-prettier/recommended'
 import jest from 'eslint-plugin-jest'
@@ -108,7 +107,6 @@ export default [
 	importPlugin.flatConfigs.recommended,
 	eslintConfigPrettier,
 	eslintPluginPrettier,
-	...tailwind.configs['flat/recommended'],
 	...tseslint.configs.recommendedTypeChecked,
 	{
 		languageOptions: {
@@ -149,7 +147,7 @@ export default [
 			/* Rules from eslint-plugin-react */
 			'react/boolean-prop-naming': [
 				'error',
-				{ rule: '^(is|has)[A-Z]([A-Za-z0-9]?)+' },
+				{ rule: '^(is|has|as)[A-Z]([A-Za-z0-9]?)+' },
 			],
 			'react/function-component-definition': [
 				'warn',
