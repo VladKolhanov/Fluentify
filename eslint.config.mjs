@@ -16,7 +16,7 @@ import storybook from 'eslint-plugin-storybook'
 
 const disallowProcessEnv = {
 	files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
-	ignores: ['src/configs/env.ts'],
+	ignores: ['src/env.ts'],
 	rules: {
 		'no-restricted-properties': [
 			'error',
