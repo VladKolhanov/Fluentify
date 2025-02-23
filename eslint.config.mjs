@@ -188,7 +188,10 @@ export default [
 			'@typescript-eslint/promise-function-async': 'error',
 			'@typescript-eslint/unified-signatures': 'error',
 			'@typescript-eslint/use-unknown-in-catch-callback-variable': 'error',
-			'@typescript-eslint/consistent-type-imports': 'error',
+			'@typescript-eslint/consistent-type-imports': [
+				'error',
+				{ fixStyle: 'inline-type-imports' },
+			],
 
 			/* Rules from eslint-plugin-check-file */
 			'check-file/filename-naming-convention': [
