@@ -14,7 +14,7 @@ import jest from 'eslint-plugin-jest'
 import playwright from 'eslint-plugin-playwright'
 import storybook from 'eslint-plugin-storybook'
 
-const disallowProcessEnv = {
+const disablingUnnecessaryImports = {
 	files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
 	ignores: ['src/env.ts'],
 	rules: {
@@ -36,6 +36,20 @@ const disallowProcessEnv = {
 						importNames: ['env'],
 						message:
 							"Use `import { env } from '@/configs/env'` instead to ensure validated types.",
+					},
+					{
+						name: 'next/link',
+						message: 'Please import from `@/i18n/routing` instead.',
+					},
+					{
+						name: 'next/navigation',
+						importNames: [
+							'redirect',
+							'permanentRedirect',
+							'useRouter',
+							'usePathname',
+						],
+						message: 'Please import from `@/i18n/routing` instead.',
 					},
 				],
 			},
@@ -74,7 +88,8 @@ const storybookConfig = {
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
-	disallowProcessEnv,
+	// disallowNextNavigation,
+	disablingUnnecessaryImports,
 	jestConfig,
 	playwrightConfig,
 	storybookConfig,
@@ -169,6 +184,7 @@ export default [
 					html: true,
 				},
 			],
+			'react/jsx-no-literals': 'error',
 
 			/* Rules from typescript-eslint */
 			'@typescript-eslint/array-type': 'error',

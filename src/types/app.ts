@@ -1,5 +1,6 @@
 export type LayoutProps = Readonly<{
 	children: React.ReactNode
+	params: Promise<Record<string, string | string[]>>
 }>
 
 export type PageProps = {

@@ -1,5 +1,8 @@
 import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 
+import { I18nProvider } from '@/providers/i18n-provider'
+import { hasLocale } from '@/shared/utils'
 import { type LayoutProps } from '@/types/app'
 import { breeSerif, lato } from '@/ui/fonts'
 
@@ -12,11 +15,17 @@ export const metadata: Metadata = {
 	icons: '/favicon/favicon.svg',
 }
 
-export default function RootLayout({ children }: LayoutProps) {
+export default async function RootLayout({ children, params }: LayoutProps) {
+	const { locale } = await params
+
+	if (typeof locale !== 'string' || !hasLocale(locale)) {
+		notFound()
+	}
+
 	return (
-		<html lang="en">
+		<html lang={locale}>
 			<body className={`${breeSerif.variable} ${lato.variable} antialiased`}>
-				{children}
+				<I18nProvider>{children}</I18nProvider>
 			</body>
 		</html>
 	)
