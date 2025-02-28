@@ -6,7 +6,7 @@ import { hasLocale } from '@/shared/utils'
 import { type LayoutProps } from '@/types/app'
 import { breeSerif, lato } from '@/ui/fonts'
 
-import '@/styles/main.css'
+import '@/ui/styles/main.css'
 
 export const metadata: Metadata = {
 	title: { default: 'Fluentify', template: '%s | Fluentify' },

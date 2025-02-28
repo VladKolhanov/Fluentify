@@ -1,7 +1,7 @@
 import type { Preview } from '@storybook/react'
 
 import { DEFAULT_LOCALE, LocalesEnum } from '@/shared/constants/locales'
-import '@/styles/main.css'
+import '@/ui/styles/main.css'
 
 import { withIntl } from './decorators/with-i18n'
 

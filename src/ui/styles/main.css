@@ -48,22 +48,6 @@
 }
 
 @layer base {
-	*,
-	::after,
-	::before,
-	::backdrop,
-	::file-selector-button {
-		border-color: var(--color-gray-200, currentColor);
-	}
-}
-
-@layer utilities {
-	body {
-		font-family: var(--font-lato);
-	}
-}
-
-@layer base {
 	:root {
 		--background: 0 0% 100%;
 		--foreground: 240 10% 3.9%;
@@ -125,6 +109,18 @@
 		@apply border-border outline-ring/50;
 	}
 	body {
-		@apply bg-background text-foreground;
+		@apply bg-background font-lato text-foreground;
+	}
+}
+
+@layer utilities {
+	.flex-start {
+		@apply flex items-center justify-start;
+	}
+	.flex-center {
+		@apply flex items-center justify-center;
+	}
+	.flex-between {
+		@apply flex items-center justify-between;
 	}
 }
