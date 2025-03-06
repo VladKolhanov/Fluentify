@@ -21,12 +21,12 @@ const meta: Meta<typeof Button> = {
 				'ghost',
 				'link',
 			] as Variants[],
-			description: 'Defines the visual style of the link.',
+			description: 'Defines the visual style of the button.',
 		},
 		size: {
 			control: 'select',
 			options: ['default', 'sm', 'lg', 'icon'] as Sizes[],
-			description: 'Controls the size of the link component.',
+			description: 'Controls the size of the button component.',
 		},
 		asChild: {
 			control: 'boolean',
