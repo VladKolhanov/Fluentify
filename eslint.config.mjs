@@ -16,7 +16,7 @@ import storybook from 'eslint-plugin-storybook'
 
 const disablingUnnecessaryImports = {
 	files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
-	ignores: ['src/env.ts'],
+	ignores: ['src/env.ts', 'src/ui/components/molecules/link/link.tsx'],
 	rules: {
 		'no-restricted-properties': [
 			'error',
@@ -51,6 +51,12 @@ const disablingUnnecessaryImports = {
 						],
 						message: 'Please import from `@/i18n/routing` instead.',
 					},
+					{
+						name: '@/i18n/navigation',
+						importNames: ['Link'],
+						message:
+							'Please import from `@/ui/components/molecules/link` instead.',
+					},
 				],
 			},
 		],
@@ -80,24 +86,16 @@ const playwrightConfig = {
 	},
 }
 
-const storybookConfig = {
-	files: ['**/*.stories.@(ts|tsx|js|jsx|mjs|cjs)'],
-	...storybook.configs['flat/recommended'],
-	rules: {},
-}
-
 /** @type {import('eslint').Linter.Config[]} */
 export default [
-	// disallowNextNavigation,
 	disablingUnnecessaryImports,
 	jestConfig,
 	playwrightConfig,
-	storybookConfig,
 
 	{ files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'] },
 	{
 		ignores: [
-			'.storybook',
+			'!.storybook',
 			'**/*.config.{js,mjs,cjs,ts,jsx,tsx}',
 			'node_modules',
 			'.lintstagedrc.js',
@@ -123,6 +121,13 @@ export default [
 	eslintConfigPrettier,
 	eslintPluginPrettier,
 	...tseslint.configs.recommendedTypeChecked,
+	/* Config storybook */
+	...storybook.configs['flat/recommended'],
+	{
+		files: ['**/*.stories.@(ts|tsx|js|jsx|mjs|cjs)'],
+		rules: {},
+	},
+	/* */
 	{
 		languageOptions: {
 			parserOptions: {
@@ -184,7 +189,6 @@ export default [
 					html: true,
 				},
 			],
-			'react/jsx-no-literals': 'error',
 
 			/* Rules from typescript-eslint */
 			'@typescript-eslint/array-type': 'error',
