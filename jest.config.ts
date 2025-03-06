@@ -10,7 +10,7 @@ const config: Config = {
 	clearMocks: true,
 	globals: {},
 	passWithNoTests: true,
-	collectCoverage: true,
+	collectCoverage: false,
 	collectCoverageFrom: [
 		'<rootDir>/src/**/*.{js,jsx,ts,tsx}',
 		'!**/node_modules/**',
@@ -20,6 +20,7 @@ const config: Config = {
 		'<rootDir>/src/app/',
 		'<rootDir>/src/configs/',
 		'<rootDir>/src/types/',
+		'<rootDir>/src/providers/',
 		'<rootDir>/src/shared/constants/',
 		'<rootDir>/src/ui/fonts/',
 		'<rootDir>/src/ui/icons/',

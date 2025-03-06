@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import { ThemeProvider } from 'next-themes'
 
 import { I18nProvider } from '@/providers/i18n-provider'
 import { hasLocale } from '@/shared/utils'
@@ -24,9 +25,18 @@ export default async function RootLayout({ children, params }: LayoutProps) {
 	}
 
 	return (
-		<html lang={locale}>
+		<html lang={locale} suppressHydrationWarning>
 			<body className={`${breeSerif.variable} ${lato.variable} antialiased`}>
-				<I18nProvider>{children}</I18nProvider>
+				<I18nProvider>
+					<ThemeProvider
+						attribute="class"
+						defaultTheme="system"
+						enableSystem
+						disableTransitionOnChange
+					>
+						{children}
+					</ThemeProvider>
+				</I18nProvider>
 			</body>
 		</html>
 	)
