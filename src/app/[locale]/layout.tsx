@@ -11,6 +11,7 @@ import '@/ui/styles/main.css'
 export const metadata: Metadata = {
 	title: { default: 'Fluentify', template: '%s | Fluentify' },
 	description: 'English dictionary',
+	metadataBase: new URL('http://localhost:3000'),
 	applicationName: 'Fluentify',
 	icons: '/favicon/favicon.svg',
 }
