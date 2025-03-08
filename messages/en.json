@@ -1,5 +1,7 @@
 {
-	"HomePage": {
-		"title": "Hello world"
+	"ThemeToggleComponent": {
+		"appearance": "Appearance",
+		"light": "light",
+		"dark": "dark"
 	}
 }

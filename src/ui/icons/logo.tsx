@@ -12,9 +12,9 @@ export const Logo = (props: Props) => {
 		>
 			<defs>
 				<linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-					<stop offset="0%" stopColor="var(--color-green-600)" />
-					<stop offset="50%" stopColor="var(--color-green-400)" />
-					<stop offset="100%" stopColor="var(--color-green-800)" />
+					<stop offset="0%" stopColor="var(--color-green-700)" />
+					<stop offset="50%" stopColor="var(--color-green-500)" />
+					<stop offset="100%" stopColor="var(--color-green-900)" />
 				</linearGradient>
 			</defs>
 			<path

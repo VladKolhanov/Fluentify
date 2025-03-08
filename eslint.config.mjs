@@ -158,7 +158,6 @@ export default [
 			eqeqeq: 'error',
 			'no-console': ['warn', { allow: ['warn', 'error'] }],
 			'no-eval': 'error',
-			'no-magic-numbers': ['error', { ignore: [1] }],
 			'no-useless-catch': 'error',
 			'no-var': 'error',
 			'prefer-template': 'error',

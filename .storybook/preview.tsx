@@ -3,6 +3,7 @@ import type { Preview } from '@storybook/react'
 import { DEFAULT_LOCALE, LocalesEnum } from '@/shared/constants/locales'
 
 import { withIntl } from './decorators/with-i18n'
+import { withTheme } from './decorators/with-theme'
 
 import '@/ui/styles/main.css'
 
@@ -19,9 +20,19 @@ const preview: Preview = {
 				dynamicTitle: true,
 			},
 		},
+		theme: {
+			description: 'Global theme for components',
+			toolbar: {
+				title: 'Theme',
+				icon: 'circlehollow',
+				items: ['light', 'dark'],
+				dynamicTitle: true,
+			},
+		},
 	},
 	initialGlobals: {
 		locale: DEFAULT_LOCALE,
+		theme: 'system',
 	},
 	parameters: {
 		layout: 'centered',
@@ -33,7 +44,7 @@ const preview: Preview = {
 			},
 		},
 	},
-	decorators: [withIntl],
+	decorators: [withIntl, withTheme],
 }
 
 export default preview
