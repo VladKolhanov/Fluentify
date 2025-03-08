@@ -27,6 +27,7 @@
 		}
 	},
 	"include": [
+		"src/types/svgr.d.ts",
 		".storybook/**/*",
 		"next-env.d.ts",
 		"**/*.ts",
