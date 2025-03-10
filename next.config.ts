@@ -1,10 +1,13 @@
 import type { NextConfig } from 'next'
 import createNextIntlPlugin from 'next-intl/plugin'
 
-import { AVAILABLE_LOCALES, DEFAULT_LOCALE } from '@/shared/constants/locales'
+import {
+	AVAILABLE_LOCALES_VALUES,
+	DEFAULT_LOCALE,
+} from '@/shared/constants/locales'
 
 const nextConfig: NextConfig = {
-	locales: AVAILABLE_LOCALES,
+	locales: AVAILABLE_LOCALES_VALUES,
 	defaultLocale: DEFAULT_LOCALE,
 	localeDetection: false,
 

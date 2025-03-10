@@ -1,20 +1,24 @@
-/* eslint-disable @typescript-eslint/no-unnecessary-condition */
 /* eslint-disable @typescript-eslint/no-unsafe-type-assertion */
+/* eslint-disable @typescript-eslint/no-unnecessary-condition */
 import type { Decorator } from '@storybook/react'
 import { NextIntlClientProvider } from 'next-intl'
 import React from 'react'
 
 import enMessages from '@/messages/en.json'
 import ukMessages from '@/messages/uk.json'
-import { LocalesEnum } from '@/shared/constants/locales'
+import {
+	type AVAILABLE_LOCALES_TYPE,
+	LOCALES_CONST,
+} from '@/shared/constants/locales'
 
-const messagesMap: Record<LocalesEnum, typeof enMessages> = {
-	[LocalesEnum.EN]: enMessages,
-	[LocalesEnum.UK]: ukMessages,
+const messagesMap: Record<AVAILABLE_LOCALES_TYPE, typeof enMessages> = {
+	[LOCALES_CONST.EN]: enMessages,
+	[LOCALES_CONST.UK]: ukMessages,
 }
 
 export const withIntl: Decorator = (Story, context) => {
-	const locale = (context.globals['locale'] as LocalesEnum) || LocalesEnum.EN
+	const locale =
+		(context.globals['locale'] as AVAILABLE_LOCALES_TYPE) || LOCALES_CONST.EN
 	const messages = messagesMap[locale]
 
 	return (

@@ -1,6 +1,6 @@
 import type { Preview } from '@storybook/react'
 
-import { DEFAULT_LOCALE, LocalesEnum } from '@/shared/constants/locales'
+import { DEFAULT_LOCALE, LOCALES_CONST } from '@/shared/constants/locales'
 
 import { withIntl } from './decorators/with-i18n'
 import { withTheme } from './decorators/with-theme'
@@ -14,8 +14,8 @@ const preview: Preview = {
 			toolbar: {
 				icon: 'globe',
 				items: [
-					{ value: LocalesEnum.EN, right: 'EN', title: 'English' },
-					{ value: LocalesEnum.UK, right: 'UK', title: 'Ukrainian' },
+					{ value: LOCALES_CONST.EN, right: 'EN', title: 'English' },
+					{ value: LOCALES_CONST.UK, right: 'UK', title: 'Ukrainian' },
 				],
 				dynamicTitle: true,
 			},
