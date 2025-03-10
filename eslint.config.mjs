@@ -96,6 +96,7 @@ export default [
 	{
 		ignores: [
 			'!.storybook',
+			'.storybook/main.ts',
 			'**/*.config.{js,mjs,cjs,ts,jsx,tsx}',
 			'node_modules',
 			'.lintstagedrc.js',

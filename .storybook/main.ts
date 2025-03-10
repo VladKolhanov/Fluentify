@@ -16,5 +16,26 @@ const config: StorybookConfig = {
 	docs: {
 		defaultName: 'Documentation',
 	},
+	webpackFinal: (config) => {
+		config.module = config.module || {}
+		config.module.rules = config.module.rules || []
+
+		const imageRule = config.module.rules.find((rule) =>
+			// @ts-ignore
+			rule?.['test']?.test('.svg')
+		)
+
+		if (imageRule) {
+			// @ts-ignore
+			imageRule['exclude'] = /\.svg$/
+		}
+
+		config.module.rules.push({
+			test: /\.svg$/,
+			use: ['@svgr/webpack'],
+		})
+
+		return config
+	},
 }
 export default config
