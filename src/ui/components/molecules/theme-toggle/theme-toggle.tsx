@@ -45,10 +45,10 @@ export const ThemeToggle = () => {
 				<DropdownMenuLabel>{t('appearance')}</DropdownMenuLabel>
 				<DropdownMenuSeparator />
 				<DropdownMenuItem onClick={() => setTheme('light')}>
-					{t('light')}
+					<SunIcon /> {t('light')}
 				</DropdownMenuItem>
 				<DropdownMenuItem onClick={() => setTheme('dark')}>
-					{t('dark')}
+					<MoonIcon /> {t('dark')}
 				</DropdownMenuItem>
 			</DropdownMenuContent>
 		</DropdownMenu>
