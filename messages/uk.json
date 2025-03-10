@@ -3,5 +3,10 @@
 		"appearance": "Тема",
 		"light": "світла",
 		"dark": "темна"
+	},
+	"LanguageToggleComponent": {
+		"language": "Мова",
+		"english": "Англійська",
+		"ukrainian": "Українська"
 	}
 }

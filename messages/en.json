@@ -3,5 +3,10 @@
 		"appearance": "Appearance",
 		"light": "light",
 		"dark": "dark"
+	},
+	"LanguageToggleComponent": {
+		"language": "Language",
+		"english": "English",
+		"ukrainian": "Ukrainian"
 	}
 }
