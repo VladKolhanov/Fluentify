@@ -8,5 +8,9 @@
 		"language": "Language",
 		"english": "English",
 		"ukrainian": "Ukrainian"
+	},
+	"HeaderComponent": {
+		"signIn": "Sign In",
+		"signUp": "Sign Up"
 	}
 }

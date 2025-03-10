@@ -8,5 +8,9 @@
 		"language": "Мова",
 		"english": "Англійська",
 		"ukrainian": "Українська"
+	},
+	"HeaderComponent": {
+		"signIn": "Увійти",
+		"signUp": "Зареєструватися"
 	}
 }
