@@ -36,6 +36,7 @@ const config: Config = {
 			statements: -10,
 		},
 	},
+	testPathIgnorePatterns: ['/node_modules/', '/e2e/'],
 	testEnvironment: 'jsdom',
 	moduleNameMapper: {
 		'@/(.*)$': '<rootDir>/src/$1',
