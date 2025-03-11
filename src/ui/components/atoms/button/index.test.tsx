@@ -2,7 +2,7 @@ import { screen } from '@testing-library/react'
 
 import { renderWithWrapper } from '@/shared/utils/tests'
 
-import { Button } from './button'
+import { Button } from '.'
 
 describe('Button', () => {
 	it('Should correctly render a button element with all props if the "asChild" prop is not passed', () => {

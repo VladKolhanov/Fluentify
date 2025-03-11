@@ -1,24 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { Link as LinkComponent } from './link'
+import { Button } from '.'
 
-type Variants = NonNullable<
-	Extract<
-		React.ComponentProps<typeof LinkComponent>,
-		{ variant?: unknown }
-	>['variant']
->
+type Variants = NonNullable<React.ComponentProps<typeof Button>['variant']>
 
-type Sizes = NonNullable<
-	Extract<
-		React.ComponentProps<typeof LinkComponent>,
-		{ size?: unknown }
-	>['size']
->
+type Sizes = NonNullable<React.ComponentProps<typeof Button>['size']>
 
-const meta: Meta<typeof LinkComponent> = {
-	title: 'components/molecules/link',
-	component: LinkComponent,
+const meta: Meta<typeof Button> = {
+	title: 'components/atoms/Button',
+	component: Button,
 	tags: ['autodocs'],
 	argTypes: {
 		variant: {
@@ -31,21 +21,15 @@ const meta: Meta<typeof LinkComponent> = {
 				'ghost',
 				'link',
 			] as Variants[],
-			description: 'Defines the visual style of the link.',
-			if: { arg: 'asWrapper', truthy: false },
+			description: 'Defines the visual style of the button.',
 		},
 		size: {
 			control: 'select',
 			options: ['default', 'sm', 'lg', 'icon'] as Sizes[],
-			description: 'Controls the size of the link component.',
-			if: { arg: 'asWrapper', truthy: false },
+			description: 'Controls the size of the button component.',
 		},
-		asWrapper: {
+		asChild: {
 			control: 'boolean',
-			description: 'Disable all styles to pass the component as a wrapper.',
-		},
-		href: {
-			control: 'text',
 		},
 		children: {
 			control: 'text',
@@ -53,14 +37,13 @@ const meta: Meta<typeof LinkComponent> = {
 	},
 	args: {
 		variant: 'default',
-		asWrapper: false,
 		size: 'default',
-		href: '/',
+		asChild: false,
 		children: 'Fluentify',
 	},
 }
 export default meta
-type Story = StoryObj<typeof LinkComponent>
+type Story = StoryObj<typeof Button>
 
 export const Default: Story = {
 	args: {

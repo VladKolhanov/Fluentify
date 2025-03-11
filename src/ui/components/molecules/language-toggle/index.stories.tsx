@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { LanguageToggle } from './language-toggle'
+import { LanguageToggle } from '.'
 
 const meta: Meta<typeof LanguageToggle> = {
 	title: 'components/molecules/language-toggle',

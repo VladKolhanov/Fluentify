@@ -16,7 +16,7 @@ import storybook from 'eslint-plugin-storybook'
 
 const disablingUnnecessaryImports = {
 	files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
-	ignores: ['src/env.ts', 'src/ui/components/molecules/link/link.tsx'],
+	ignores: ['src/env.ts', 'src/ui/components/molecules/link/*'],
 	rules: {
 		'no-restricted-properties': [
 			'error',

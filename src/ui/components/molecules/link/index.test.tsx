@@ -3,7 +3,7 @@ import { cleanup, screen } from '@testing-library/react'
 import { Routes } from '@/shared/constants/routes'
 import { renderWithWrapper } from '@/shared/utils/tests'
 
-import { Link } from './link'
+import { Link } from '.'
 
 describe('Link', () => {
 	afterEach(() => {
