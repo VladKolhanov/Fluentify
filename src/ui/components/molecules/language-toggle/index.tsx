@@ -7,6 +7,7 @@ import {
 	type AVAILABLE_LOCALES_TYPE,
 	LOCALES_CONST,
 } from '@/shared/constants/locales'
+import { cn } from '@/shared/utils'
 import { Button } from '@/ui/components/atoms/button'
 import {
 	DropdownMenu,
@@ -18,7 +19,11 @@ import {
 } from '@/ui/components/atoms/dropdown-menu'
 import { UkraineFlagIcon, UnitedKingdomFlagIcon } from '@/ui/icons'
 
-export const LanguageToggle = () => {
+type Props = {
+	className?: string
+}
+
+export const LanguageToggle = ({ className }: Props) => {
 	const router = useRouter()
 	const pathname = usePathname()
 	const locale = useLocale()
@@ -32,7 +37,9 @@ export const LanguageToggle = () => {
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
 				<Button
-					className="focus-visible:ring-0 focus-visible:ring-offset-0"
+					className={
+						(cn('focus-visible:ring-0 focus-visible:ring-offset-0'), className)
+					}
 					variant="ghost"
 					size="icon"
 				>

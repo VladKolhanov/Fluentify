@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl'
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 
+import { cn } from '@/shared/utils'
 import { Button } from '@/ui/components/atoms/button'
 import {
 	DropdownMenu,
@@ -15,7 +16,11 @@ import {
 } from '@/ui/components/atoms/dropdown-menu'
 import { MoonIcon, SunIcon } from '@/ui/icons'
 
-export const ThemeToggle = () => {
+type Props = {
+	className?: string
+}
+
+export const ThemeToggle = ({ className }: Props) => {
 	const [isMounted, setIsMounted] = useState(false)
 	const { setTheme } = useTheme()
 	const t = useTranslations('ThemeToggleComponent')
@@ -25,14 +30,16 @@ export const ThemeToggle = () => {
 	}, [])
 
 	if (!isMounted) {
-		return null
+		return <button className="size-0" />
 	}
 
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
 				<Button
-					className="focus-visible:ring-0 focus-visible:ring-offset-0"
+					className={
+						(cn('focus-visible:ring-0 focus-visible:ring-offset-0'), className)
+					}
 					variant="ghost"
 					size="icon"
 				>

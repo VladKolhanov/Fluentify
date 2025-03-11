@@ -123,4 +123,10 @@
 	.flex-between {
 		@apply flex items-center justify-between;
 	}
+	.gap-sm {
+		@apply gap-2 sm:gap-4 md:gap-5;
+	}
+	.px-sm {
+		@apply px-2 sm:px-4 md:px-5;
+	}
 }

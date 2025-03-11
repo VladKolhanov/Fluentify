@@ -13,13 +13,13 @@ import {
 import { LanguageToggle } from '@/ui/components/molecules/language-toggle'
 import { Link } from '@/ui/components/molecules/link'
 import { ThemeToggle } from '@/ui/components/molecules/theme-toggle'
-import { MenuIcon } from '@/ui/icons'
+import { LogInIcon, MenuIcon, UserPlusIcon } from '@/ui/icons'
 
 export const Header = () => {
 	const t = useTranslations('HeaderComponent')
 
 	return (
-		<header className="bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 grid grid-cols-[1fr_max-content_max-content_max-content] items-center justify-items-start gap-6 border-b px-6 backdrop-blur">
+		<header className="bg-background/95 supports-[backdrop-filter]:bg-background/60 gap-sm px-sm sticky top-0 z-50 grid grid-cols-[1fr_max-content_max-content_max-content] items-center justify-items-start border-b backdrop-blur">
 			<Link href={Routes.Home} asWrapper>
 				<Logo />
 			</Link>
@@ -29,9 +29,11 @@ export const Header = () => {
 
 			<nav className="hidden gap-4 md:flex">
 				<Link href={Routes.SignIn} variant="outline">
-					{t('signIn')}
+					<LogInIcon /> {t('signIn')}
 				</Link>
-				<Link href={Routes.SignUp}>{t('signUp')}</Link>
+				<Link href={Routes.SignUp}>
+					<UserPlusIcon /> {t('signUp')}
+				</Link>
 			</nav>
 
 			<Sheet>
@@ -56,9 +58,11 @@ export const Header = () => {
 
 						<div className="grid w-full grid-cols-[.8fr] grid-rows-2 justify-center gap-2 sm:grid-cols-[.5fr]">
 							<Link href={Routes.SignIn} variant="outline">
-								{t('signIn')}
+								<LogInIcon /> {t('signIn')}
 							</Link>
-							<Link href={Routes.SignUp}>{t('signUp')}</Link>
+							<Link href={Routes.SignUp}>
+								<UserPlusIcon /> {t('signUp')}
+							</Link>
 						</div>
 					</nav>
 				</SheetContent>
