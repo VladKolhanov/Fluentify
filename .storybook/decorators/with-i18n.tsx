@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-type-assertion */
-/* eslint-disable @typescript-eslint/no-unnecessary-condition */
 import type { Decorator } from '@storybook/react'
 import { NextIntlClientProvider } from 'next-intl'
 import React from 'react'
