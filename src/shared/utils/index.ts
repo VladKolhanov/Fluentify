@@ -10,3 +10,7 @@ export const cn = (...inputs: ClassValue[]) => {
 export const hasLocale = (locale: string) => {
 	return routing.locales.includes(locale)
 }
+
+export const generateRandomUUID = () => {
+	return crypto.randomUUID()
+}
