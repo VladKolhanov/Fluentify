@@ -2,8 +2,8 @@ import type { Preview } from '@storybook/react'
 
 import { DEFAULT_LOCALE, LOCALES_CONST } from '@/shared/constants/locales'
 
-import { withIntl } from './decorators/with-i18n'
-import { withTheme } from './decorators/with-theme'
+import { WithIntl } from './decorators/with-i18n'
+import { WithTheme } from './decorators/with-theme'
 
 import '@/ui/styles/main.css'
 
@@ -47,7 +47,7 @@ const preview: Preview = {
 			},
 		},
 	},
-	decorators: [withIntl, withTheme],
+	decorators: [WithIntl, WithTheme],
 }
 
 export default preview

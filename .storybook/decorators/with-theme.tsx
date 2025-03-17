@@ -2,7 +2,7 @@ import type { Decorator } from '@storybook/react'
 import { ThemeProvider as NextThemesProvider } from 'next-themes'
 import React from 'react'
 
-export const withTheme: Decorator = (Story, context) => {
+export const WithTheme: Decorator = (Story, context) => {
 	const newTheme = context.globals['theme'] as string
 
 	return (

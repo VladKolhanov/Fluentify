@@ -14,7 +14,7 @@ const messagesMap: Record<AVAILABLE_LOCALES_TYPE, typeof enMessages> = {
 	[LOCALES_CONST.UK]: ukMessages,
 }
 
-export const withIntl: Decorator = (Story, context) => {
+export const WithIntl: Decorator = (Story, context) => {
 	const locale =
 		(context.globals['locale'] as AVAILABLE_LOCALES_TYPE) || LOCALES_CONST.EN
 	const messages = messagesMap[locale]
