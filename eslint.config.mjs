@@ -190,6 +190,10 @@ export default [
 			],
 
 			/* Rules from typescript-eslint */
+			'@typescript-eslint/no-unused-vars': [
+				'error',
+				{ varsIgnorePattern: '^_' },
+			],
 			'@typescript-eslint/array-type': 'error',
 			'@typescript-eslint/consistent-indexed-object-style': 'error',
 			'@typescript-eslint/no-unnecessary-boolean-literal-compare': 'error',
@@ -212,7 +216,8 @@ export default [
 			'check-file/filename-naming-convention': [
 				'error',
 				{
-					'**/*.{ts,tsx}': 'KEBAB_CASE',
+					'**/!(__tests__)/!(*use*)*.{ts,tsx}': 'KEBAB_CASE',
+					'**/hooks/*.{ts,tsx}': 'CAMEL_CASE',
 				},
 				{
 					ignoreMiddleExtensions: true,
@@ -222,7 +227,7 @@ export default [
 				'error',
 				{
 					'src/app/**/*': 'NEXT_JS_APP_ROUTER_CASE',
-					'src/!(app)/**/*': 'KEBAB_CASE',
+					'src/!(app)/**/!(__tests__)/': 'KEBAB_CASE',
 				},
 			],
 
