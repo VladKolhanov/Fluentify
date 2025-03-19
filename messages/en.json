@@ -12,5 +12,8 @@
 	"HeaderComponent": {
 		"signIn": "Sign In",
 		"signUp": "Sign Up"
+	},
+	"FormSubmitButtonComponent": {
+		"sending": "Sending"
 	}
 }

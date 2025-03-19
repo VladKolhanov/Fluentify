@@ -3,6 +3,7 @@ import { type Decorator } from '@storybook/react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
+import { wait } from '@/shared/utils'
 import { Form } from '@/ui/components/atoms/form'
 
 export const mockStorybookSchema = z.object({
@@ -22,7 +23,13 @@ export const WithForm: Decorator = (Story) => {
 
 	return (
 		<Form {...form}>
-			<Story />
+			<form
+				action={async () => {
+					await wait(2000)
+				}}
+			>
+				<Story />
+			</form>
 		</Form>
 	)
 }

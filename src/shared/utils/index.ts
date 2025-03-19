@@ -26,3 +26,7 @@ export const generateActionState = (
 ) => {
 	return { [status]: message, data }
 }
+
+export const wait = async (ms: number) => {
+	return await new Promise((resolve) => setTimeout(resolve, ms))
+}

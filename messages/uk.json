@@ -12,5 +12,8 @@
 	"HeaderComponent": {
 		"signIn": "Увійти",
 		"signUp": "Зареєструватися"
+	},
+	"FormSubmitButtonComponent": {
+		"sending": "Відправка"
 	}
 }
