@@ -5,7 +5,7 @@ import Credentials from 'next-auth/providers/credentials'
 
 import { db } from '@/db'
 import { getUserByEmail } from '@/db/queries/users'
-import { insertUsersSchema } from '@/db/schema'
+import { getUsersSchema } from '@/shared/validators/users'
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
 	session: { strategy: 'jwt' },
@@ -14,7 +14,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 	providers: [
 		Credentials({
 			async authorize(credentials) {
-				const validatedFields = insertUsersSchema.safeParse(credentials)
+				const schema = getUsersSchema('signInSchema')
+				const validatedFields = schema.safeParse(credentials)
 
 				if (!validatedFields.success) return null
 
@@ -30,7 +31,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
 				return {
 					id: user.id,
-					name: user.name,
+					firstName: user.firstName,
+					lastName: user.lastName,
 					email: user.email,
 					role: user.role,
 				}

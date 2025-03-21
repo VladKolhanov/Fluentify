@@ -15,5 +15,44 @@
 	},
 	"FormSubmitButtonComponent": {
 		"sending": "Відправка"
+	},
+	"SignUpPage": {
+		"title": "Створіть обліковий запис",
+		"subtitle": "Зареєструйтеся, щоб почати користуватися Fluentify",
+		"separator": "Або продовжити через",
+		"googleProvider": "Продовжити з Google",
+		"facebookProvider": "Продовжити з Facebook",
+		"haveAccount": "Вже маєте обліковий запис?",
+		"signinLink": "Увійти"
+	},
+	"SignUpFormComponent": {
+		"firstName": "Ім'я",
+		"lastName": "Прізвище",
+		"email": "Електронна пошта",
+		"password": "Пароль",
+		"confirmPassword": "Підтвердьте пароль",
+		"sendForm": "Створити обліковий запис"
+	},
+	"SignInPage": {
+		"title": "Ласкаво просимо до Fluentify",
+		"subtitle": "Введіть вашу електронну пошту та пароль, щоб увійти до акаунту",
+		"separator": "Або продовжити через",
+		"googleProvider": "Продовжити через Google",
+		"facebookProvider": "Продовжити через Facebook"
+	},
+	"SignInFormComponent": {
+		"email": "Електронна пошта",
+		"password": "Пароль",
+		"sendForm": "Увійти"
+	},
+	"errorUsersSchema": {
+		"firstNameRequired": "Ім'я є обов'язковим",
+		"lastNameRequired": "Прізвище є обов'язковим",
+		"emailInvalid": "Неправильний формат електронної пошти!",
+		"emailRequired": "Електронна пошта є обов'язковою",
+		"passwordRequired": "Пароль має містити щонайменше 8 символів",
+		"passwordUppercase": "Пароль має містити принаймні одну велику літеру",
+		"passwordNumber": "Пароль має містити принаймні одну цифру",
+		"confirmPasswordNotMatch": "Паролі не збігаються"
 	}
 }

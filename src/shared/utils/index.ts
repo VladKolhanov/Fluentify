@@ -16,7 +16,7 @@ export const generateRandomUUID = (): string => {
 }
 
 export const parseFormData = (formData: FormData) => {
-	return Object.fromEntries(formData.entries())
+	return Object.fromEntries(formData)
 }
 
 export const generateActionState = (

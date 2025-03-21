@@ -15,5 +15,44 @@
 	},
 	"FormSubmitButtonComponent": {
 		"sending": "Sending"
+	},
+	"SignUpPage": {
+		"title": "Create an account",
+		"subtitle": "Sign up to start using Fluentify",
+		"separator": "Or continue with",
+		"googleProvider": "Continue with Google",
+		"facebookProvider": "Continue with Facebook",
+		"haveAccount": "Already have an account?",
+		"signinLink": "Sign in"
+	},
+	"SignUpFormComponent": {
+		"firstName": "First Name",
+		"lastName": "Last Name",
+		"email": "Email",
+		"password": "Password",
+		"confirmPassword": "Confirm Password",
+		"sendForm": "Create account"
+	},
+	"SignInPage": {
+		"title": "Welcome to Fluentify",
+		"subtitle": "Enter your email and password to sign in to your account",
+		"separator": "Or continue with",
+		"googleProvider": "Continue with Google",
+		"facebookProvider": "Continue with Facebook"
+	},
+	"SignInFormComponent": {
+		"email": "Email",
+		"password": "Password",
+		"sendForm": "Sign In"
+	},
+	"errorUsersSchema": {
+		"firstNameRequired": "First Name is required",
+		"lastNameRequired": "Last Name is required",
+		"emailInvalid": "Invalid email format!",
+		"emailRequired": "Email is required",
+		"passwordRequired": "Password must be at least 8 characters",
+		"passwordUppercase": "Password must contain at least one uppercase letter",
+		"passwordNumber": "Password must contain at least one number",
+		"confirmPasswordNotMatch": "Passwords do not match"
 	}
 }
