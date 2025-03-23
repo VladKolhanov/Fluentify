@@ -1,4 +1,5 @@
 import type { StorybookConfig } from '@storybook/nextjs'
+import path from 'path'
 
 const config: StorybookConfig = {
 	stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
@@ -7,6 +8,7 @@ const config: StorybookConfig = {
 		'@storybook/addon-essentials',
 		'@chromatic-com/storybook',
 		'@storybook/addon-interactions',
+		'storybook-addon-module-mock',
 	],
 	framework: {
 		name: '@storybook/nextjs',
@@ -15,6 +17,9 @@ const config: StorybookConfig = {
 	staticDirs: ['..\\public'],
 	docs: {
 		defaultName: 'Documentation',
+	},
+	features: {
+		experimentalRSC: true,
 	},
 	webpackFinal: (config) => {
 		config.module = config.module || {}
@@ -35,7 +40,18 @@ const config: StorybookConfig = {
 			use: ['@svgr/webpack'],
 		})
 
+		if (config.resolve) {
+			config.resolve.alias = {
+				...config.resolve.alias,
+				'next-intl/server': path.resolve(
+					import.meta.dirname,
+					'mocks/next-intl-mock.ts'
+				),
+			}
+		}
+
 		return config
 	},
 }
+
 export default config

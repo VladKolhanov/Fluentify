@@ -3,8 +3,15 @@ import { z } from 'zod'
 
 export const env = createEnv({
 	server: {
-		DATABASE_URL: z.string(),
+		DATABASE_URL: z.string().url(),
 	},
-	client: {},
-	runtimeEnv: { DATABASE_URL: process.env['DATABASE_URL'] },
+	client: {
+		NEXT_PUBLIC_NODE_ENV: z.enum(['development', 'production', 'test']),
+		NEXT_PUBLIC_DB_MOCK: z.string().url(),
+	},
+	runtimeEnv: {
+		DATABASE_URL: process.env['DATABASE_URL'],
+		NEXT_PUBLIC_DB_MOCK: process.env['NEXT_PUBLIC_DB_MOCK'],
+		NEXT_PUBLIC_NODE_ENV: process.env['NEXT_PUBLIC_NODE_ENV'],
+	},
 })
