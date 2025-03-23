@@ -54,5 +54,10 @@
 		"passwordUppercase": "Password must contain at least one uppercase letter",
 		"passwordNumber": "Password must contain at least one number",
 		"confirmPasswordNotMatch": "Passwords do not match"
+	},
+	"errorCreateUserAction": {
+		"invalidData": "Invalid data. Please check that all fields are filled out correctly.",
+		"emailExist": "This email is already registered. Try logging in or use a different email.",
+		"unknown": "An unknown error occurred. Please try again later or contact support"
 	}
 }

@@ -24,7 +24,7 @@ export const generateActionState = (
 	message: string,
 	data?: Record<string, unknown>
 ) => {
-	return { [status]: message, data }
+	return { status: status, message: message, data }
 }
 
 export const wait = async (ms: number) => {

@@ -12,6 +12,7 @@ import {
 	type SignupSchemaType,
 } from '@/shared/validators/users'
 import { Form } from '@/ui/components/atoms/form'
+import { FormAlert } from '@/ui/components/molecules/form-alert'
 import { FormField } from '@/ui/components/molecules/form-field'
 import { FormSubmitButton } from '@/ui/components/molecules/form-submit-button'
 
@@ -20,7 +21,7 @@ type Props = {
 }
 
 export const FormSignUp = ({ className }: Props) => {
-	const [_, formAction] = useActionState(createUserAction, null)
+	const [actionState, formAction] = useActionState(createUserAction, null)
 
 	const tErrors = useTranslations('errorUsersSchema')
 	const t = useTranslations('SignUpFormComponent')
@@ -38,74 +39,80 @@ export const FormSignUp = ({ className }: Props) => {
 	})
 
 	return (
-		<Form {...form}>
-			<form
-				action={formAction}
-				className={cn(
-					'grid gap-y-7 md:grid-cols-2 md:gap-x-6 lg:gap-x-12',
-					className
-				)}
-			>
-				<FormField<SignupSchemaType>
-					className="col-span-2 md:col-span-1"
-					name="firstName"
-					label={t('firstName')}
-					inputProps={{
-						type: 'text',
-						autoComplete: 'name',
-						placeholder: 'John',
-					}}
-				/>
+		<>
+			{actionState && (
+				<FormAlert status={actionState.status} message={actionState.message} />
+			)}
 
-				<FormField<SignupSchemaType>
-					className="col-span-2 md:col-span-1"
-					name="lastName"
-					label={t('lastName')}
-					inputProps={{
-						type: 'text',
-						autoComplete: 'name',
-						placeholder: 'Doe',
-					}}
-				/>
-
-				<FormField<SignupSchemaType>
-					className="col-span-2"
-					name="email"
-					label={t('email')}
-					inputProps={{
-						type: 'email',
-						autoComplete: 'email',
-						placeholder: 'name@example.com',
-					}}
-				/>
-
-				<FormField<SignupSchemaType>
-					className="col-span-2"
-					name="password"
-					label={t('password')}
-					inputProps={{
-						type: 'password',
-						autoComplete: 'new-password',
-					}}
-				/>
-
-				<FormField<SignupSchemaType>
-					className="col-span-2"
-					name="confirmPassword"
-					label={t('confirmPassword')}
-					inputProps={{
-						type: 'password',
-						autoComplete: 'new-password',
-					}}
-				/>
-
-				<FormSubmitButton
-					disabled={!form.formState.isValid}
-					className="col-span-2 w-full cursor-pointer"
+			<Form {...form}>
+				<form
+					action={formAction}
+					className={cn(
+						'grid gap-y-7 md:grid-cols-2 md:gap-x-6 lg:gap-x-12',
+						className
+					)}
 				>
-					{t('sendForm')}
-				</FormSubmitButton>
-			</form>
-		</Form>
+					<FormField<SignupSchemaType>
+						className="col-span-2 md:col-span-1"
+						name="firstName"
+						label={t('firstName')}
+						inputProps={{
+							type: 'text',
+							autoComplete: 'name',
+							placeholder: 'John',
+						}}
+					/>
+
+					<FormField<SignupSchemaType>
+						className="col-span-2 md:col-span-1"
+						name="lastName"
+						label={t('lastName')}
+						inputProps={{
+							type: 'text',
+							autoComplete: 'name',
+							placeholder: 'Doe',
+						}}
+					/>
+
+					<FormField<SignupSchemaType>
+						className="col-span-2"
+						name="email"
+						label={t('email')}
+						inputProps={{
+							type: 'email',
+							autoComplete: 'email',
+							placeholder: 'name@example.com',
+						}}
+					/>
+
+					<FormField<SignupSchemaType>
+						className="col-span-2"
+						name="password"
+						label={t('password')}
+						inputProps={{
+							type: 'password',
+							autoComplete: 'new-password',
+						}}
+					/>
+
+					<FormField<SignupSchemaType>
+						className="col-span-2"
+						name="confirmPassword"
+						label={t('confirmPassword')}
+						inputProps={{
+							type: 'password',
+							autoComplete: 'new-password',
+						}}
+					/>
+
+					<FormSubmitButton
+						disabled={!form.formState.isValid}
+						className="col-span-2 w-full cursor-pointer"
+					>
+						{t('sendForm')}
+					</FormSubmitButton>
+				</form>
+			</Form>
+		</>
 	)
 }

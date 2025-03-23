@@ -7,6 +7,8 @@ export {
 	LogInIcon,
 	MenuIcon,
 	MoonIcon,
+	ShieldCheckIcon,
+	ShieldXIcon,
 	SunIcon,
 	UserPlusIcon,
 	XIcon,
