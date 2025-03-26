@@ -2,10 +2,22 @@ import { db } from '@/db'
 import { users } from '@/db/schema'
 import { type InsertUsersSchema } from '@/shared/validators/users'
 
-export const getUserByEmail = async (email: string) => {
+export const getUserByEmail = async (email: InsertUsersSchema['email']) => {
 	try {
 		const user = await db.query.users.findFirst({
 			where: (users, { eq }) => eq(users.email, email),
+		})
+
+		return user
+	} catch (error) {
+		console.error(error)
+	}
+}
+
+export const getUserById = async (id: NonNullable<InsertUsersSchema['id']>) => {
+	try {
+		const user = await db.query.users.findFirst({
+			where: (users, { eq }) => eq(users.id, id),
 		})
 
 		return user

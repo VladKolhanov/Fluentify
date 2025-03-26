@@ -2,14 +2,17 @@
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTranslations } from 'next-intl'
+import { useActionState } from 'react'
 import { useForm } from 'react-hook-form'
 
+import { signinUserAction } from '@/shared/actions/users'
 import { cn } from '@/shared/utils'
 import {
 	getUsersSchema,
 	type SigninSchemaType,
 } from '@/shared/validators/users'
 import { Form } from '@/ui/components/atoms/form'
+import { FormAlert } from '@/ui/components/molecules/form-alert'
 import { FormField } from '@/ui/components/molecules/form-field'
 import { FormSubmitButton } from '@/ui/components/molecules/form-submit-button'
 
@@ -18,6 +21,7 @@ type Props = {
 }
 
 export const FormSignIn = ({ className }: Props) => {
+	const [actionState, formAction] = useActionState(signinUserAction, null)
 	const tErrors = useTranslations('errorUsersSchema')
 	const t = useTranslations('SignInFormComponent')
 
@@ -31,34 +35,43 @@ export const FormSignIn = ({ className }: Props) => {
 	})
 
 	return (
-		<Form {...form}>
-			<form className={cn('grid gap-y-7 md:gap-x-6 lg:gap-x-12', className)}>
-				<FormField<SigninSchemaType>
-					name="email"
-					label={t('email')}
-					inputProps={{
-						type: 'email',
-						autoComplete: 'email',
-						placeholder: 'name@example.com',
-					}}
-				/>
+		<>
+			{actionState && (
+				<FormAlert status={actionState.status} message={actionState.message} />
+			)}
 
-				<FormField<SigninSchemaType>
-					name="password"
-					label={t('password')}
-					inputProps={{
-						type: 'password',
-						autoComplete: 'current-password',
-					}}
-				/>
-
-				<FormSubmitButton
-					disabled={!form.formState.isValid}
-					className="w-full cursor-pointer"
+			<Form {...form}>
+				<form
+					className={cn('grid gap-y-7 md:gap-x-6 lg:gap-x-12', className)}
+					action={formAction}
 				>
-					{t('sendForm')}
-				</FormSubmitButton>
-			</form>
-		</Form>
+					<FormField<SigninSchemaType>
+						name="email"
+						label={t('email')}
+						inputProps={{
+							type: 'email',
+							autoComplete: 'email',
+							placeholder: 'name@example.com',
+						}}
+					/>
+
+					<FormField<SigninSchemaType>
+						name="password"
+						label={t('password')}
+						inputProps={{
+							type: 'password',
+							autoComplete: 'current-password',
+						}}
+					/>
+
+					<FormSubmitButton
+						disabled={!form.formState.isValid}
+						className="w-full cursor-pointer"
+					>
+						{t('sendForm')}
+					</FormSubmitButton>
+				</form>
+			</Form>
+		</>
 	)
 }

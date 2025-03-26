@@ -1,15 +1,20 @@
 import { DrizzleAdapter } from '@auth/drizzle-adapter'
 import bcrypt from 'bcryptjs'
-import NextAuth from 'next-auth'
+import NextAuth, { type NextAuthConfig } from 'next-auth'
 import Credentials from 'next-auth/providers/credentials'
 
 import { db } from '@/db'
-import { getUserByEmail } from '@/db/queries/users'
+import { getUserByEmail, getUserById } from '@/db/queries/users'
+import { type RolesType } from '@/shared/constants/roles'
+import { Routes } from '@/shared/constants/routes'
 import { getUsersSchema } from '@/shared/validators/users'
 
-export const { handlers, auth, signIn, signOut } = NextAuth({
+const config: NextAuthConfig = {
 	session: { strategy: 'jwt' },
-
+	pages: {
+		signIn: Routes.SignIn,
+		newUser: Routes.SignUp,
+	},
 	adapter: DrizzleAdapter(db),
 	providers: [
 		Credentials({
@@ -39,5 +44,35 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 			},
 		}),
 	],
-	callbacks: {},
-})
+	callbacks: {
+		signIn() {
+			return true
+		},
+
+		async jwt({ token }) {
+			if (!token.sub) return token
+
+			const existingUser = await getUserById(token.sub)
+
+			if (!existingUser) return token
+
+			token['role'] = existingUser.role
+
+			return token
+		},
+
+		session({ session, token }) {
+			if (token.sub && session.user) {
+				session.user.id = token.sub
+			}
+
+			if (token['role'] && session.user) {
+				session.user.role = token['role'] as RolesType
+			}
+
+			return session
+		},
+	},
+}
+
+export const { handlers, auth, signIn, signOut } = NextAuth(config)

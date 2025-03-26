@@ -59,5 +59,8 @@
 		"invalidData": "Invalid data. Please check that all fields are filled out correctly.",
 		"emailExist": "This email is already registered. Try logging in or use a different email.",
 		"unknown": "An unknown error occurred. Please try again later or contact support"
+	},
+	"errorSignIn": {
+		"badData": "Incorrect login or password. Please check your credentials and try again."
 	}
 }
