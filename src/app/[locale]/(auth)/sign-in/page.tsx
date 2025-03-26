@@ -1,7 +1,12 @@
+import { type Metadata } from 'next'
 import { useTranslations } from 'next-intl'
 
 import { SeparatorWithLabel } from '@/ui/components/molecules/separator-with-label'
 import { FormSignIn } from '@/ui/components/organisms/form-signin'
+
+export const metadata: Metadata = {
+	title: 'Sign In',
+}
 
 export default function SignIn() {
 	const t = useTranslations('SignInPage')

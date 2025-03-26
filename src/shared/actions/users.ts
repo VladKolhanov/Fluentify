@@ -2,19 +2,18 @@
 
 import bcrypt from 'bcryptjs'
 import { AuthError } from 'next-auth'
-import { getLocale, getTranslations } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 
 import { createUser, getUserByEmail } from '@/db/queries/users'
-import { redirect } from '@/i18n/navigation'
 import { DEFAULT_REDIRECT_PATH, Routes } from '@/shared/constants/routes'
 import { signIn, signOut } from '@/shared/libs/auth'
 import { generateActionState, parseFormData } from '@/shared/utils'
+import { redirectWithLocale } from '@/shared/utils/server'
 import { getUsersSchema } from '@/shared/validators/users'
 import { type FormAction } from '@/types/app'
 
 export const createUserAction: FormAction = async (_, formData) => {
 	const t = await getTranslations('errorCreateUserAction')
-	const locale = await getLocale()
 	const rawFormData = parseFormData(formData)
 	const schema = getUsersSchema('signUpSchema')
 
@@ -42,7 +41,7 @@ export const createUserAction: FormAction = async (_, formData) => {
 	})
 
 	if (userId) {
-		redirect({ href: Routes.Dashboard, locale })
+		await redirectWithLocale(Routes.Dashboard)
 	}
 
 	return generateActionState('error', t('unknown'))
@@ -73,17 +72,14 @@ export const signinUserAction: FormAction = async (_, formData) => {
 	}
 
 	if (isSignInSuccess) {
-		const locale = await getLocale()
-		redirect({ href: DEFAULT_REDIRECT_PATH, locale })
+		await redirectWithLocale(DEFAULT_REDIRECT_PATH)
 	}
 
 	return null
 }
 
 export const signoutUserAction = async () => {
-	const locale = await getLocale()
-
 	await signOut({ redirect: false })
 
-	redirect({ href: Routes.Home, locale })
+	await redirectWithLocale(Routes.Home)
 }

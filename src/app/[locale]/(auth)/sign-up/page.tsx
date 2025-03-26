@@ -1,9 +1,14 @@
+import { type Metadata } from 'next'
 import { useTranslations } from 'next-intl'
 
 import { Routes } from '@/shared/constants/routes'
 import { Link } from '@/ui/components/molecules/link'
 import { SeparatorWithLabel } from '@/ui/components/molecules/separator-with-label'
 import { FormSignUp } from '@/ui/components/organisms/form-signup'
+
+export const metadata: Metadata = {
+	title: 'Sign Up',
+}
 
 export default function SignUp() {
 	const t = useTranslations('SignUpPage')

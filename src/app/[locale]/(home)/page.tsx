@@ -1,5 +1,3 @@
-import { HomeTemplate } from '@/ui/components/templates/home-template'
-
 export default function Home() {
-	return <HomeTemplate />
+	return <main className="px-sm container">Home page</main>
 }

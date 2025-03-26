@@ -22,10 +22,13 @@ export const getUsersSchema = <TSchema extends keyof typeof schemas>(
 
 	const schemas = {
 		insertUsersSchema: insertBaseSchema.extend({}),
-		signInSchema: insertBaseSchema.pick({
-			email: true,
-			password: true,
-		}),
+		signInSchema: insertBaseSchema
+			.pick({
+				email: true,
+			})
+			.extend({
+				password: z.string().nonempty(t?.('passwordNotNull')),
+			}),
 		signUpSchema: insertBaseSchema
 			.pick({
 				firstName: true,
