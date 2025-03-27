@@ -14,6 +14,7 @@ const config: NextAuthConfig = {
 	pages: {
 		signIn: Routes.SignIn,
 		newUser: Routes.SignUp,
+		error: Routes.AuthError,
 	},
 	adapter: DrizzleAdapter(db),
 	providers: [

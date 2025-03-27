@@ -66,7 +66,7 @@ export const signinUserAction: FormAction = async (_, formData) => {
 				case 'CredentialsSignin':
 					return generateActionState('error', t('badData'))
 				default:
-				// TODO: create redirect to custom error page
+					return generateActionState('error', t('unexpectedError'))
 			}
 		}
 	}

@@ -9,9 +9,12 @@ export type LayoutProps = Readonly<{
 	params: Promise<Record<string, string | string[]>>
 }>
 
-export type PageProps = {
-	params: Promise<Record<string, string | string[]>>
-	searchParams: Promise<Record<string, string | string[] | undefined>>
+export type PageProps<
+	TParams extends Record<string, string | string[]> | undefined,
+	TSearchParams extends Record<string, string | string[] | undefined>,
+> = {
+	params: Promise<TParams>
+	searchParams: Promise<TSearchParams>
 }
 
 export type TranslationKeys<TKey extends keyof typeof messages> =

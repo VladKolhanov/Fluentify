@@ -62,6 +62,34 @@
 		"unknown": "An unknown error occurred. Please try again later or contact support"
 	},
 	"errorSignIn": {
-		"badData": "Incorrect login or password. Please check your credentials and try again."
+		"badData": "Incorrect login or password. Please check your credentials and try again.",
+		"unexpectedError": "An unexpected authentication error occurred. Please try again later."
+	},
+	"errorAuth": {
+		"card": {
+			"description": "We encountered a problem while authenticating your account",
+			"contactUs": "If this problem persists, please contact our support team for assistance.",
+			"backToLogin": "Back to Login"
+		},
+		"configuration": {
+			"title": "Server Error",
+			"description": "There is a problem with the server configuration. Please contact support."
+		},
+		"accessDenied": {
+			"title": "Access Denied",
+			"description": "You do not have permission to sign in."
+		},
+		"verification": {
+			"title": "Verification Error",
+			"description": "The verification link may have expired or has already been used."
+		},
+		"OAuthAccountNotLinked": {
+			"title": "Account Already Exists",
+			"description": "This email is already linked to another login method. Please sign in using the original method or connect this provider in your account settings."
+		},
+		"default": {
+			"title": "Authentication Error",
+			"description": "An error occurred during the authentication process. Please try again."
+		}
 	}
 }

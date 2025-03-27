@@ -20,7 +20,7 @@ export const Header = () => {
 
 	return (
 		<header className="bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 border-b backdrop-blur">
-			<div className="gap-sm px-sm container grid grid-cols-[1fr_max-content_max-content_max-content] items-center justify-items-start">
+			<div className="gap-sm px-sm container mx-auto grid grid-cols-[1fr_max-content_max-content_max-content] items-center justify-items-start">
 				<Link href={Routes.Home} asWrapper>
 					<Logo />
 				</Link>

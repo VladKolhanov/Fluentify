@@ -1,3 +1,3 @@
 export default function Home() {
-	return <main className="px-sm container">Home page</main>
+	return <main className="px-sm container mx-auto">Home page</main>
 }

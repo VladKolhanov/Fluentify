@@ -3,6 +3,7 @@ export const Routes = {
 	Dashboard: '/dashboard',
 	SignIn: '/sign-in',
 	SignUp: '/sign-up',
+	AuthError: '/auth-error',
 } as const
 
 export type RoutesType = (typeof Routes)[keyof typeof Routes]
