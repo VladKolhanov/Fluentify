@@ -1,3 +1,4 @@
+import { type Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 
 import {
@@ -18,12 +19,15 @@ import { FormAlert } from '@/ui/components/molecules/form-alert'
 import { Link } from '@/ui/components/molecules/link'
 import { ArrowLeftIcon } from '@/ui/icons'
 
+export const metadata: Metadata = {
+	title: 'Auth-Error',
+}
+
 type Props = PageProps<undefined, { error: AuthErrorEnum }>
 
 export default async function AuthError({ searchParams }: Props) {
 	const { error: errorKey } = await searchParams
 	const t = await getTranslations('errorAuth')
-
 	const error = getAuthError(errorKey, t)
 
 	return (

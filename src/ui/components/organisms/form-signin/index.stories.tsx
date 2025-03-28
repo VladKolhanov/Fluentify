@@ -1,20 +1,20 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { FormSignUp } from '.'
+import { FormSignIn } from '.'
 
-const meta: Meta<typeof FormSignUp> = {
-	title: 'forms/signup',
-	component: FormSignUp,
+const meta: Meta<typeof FormSignIn> = {
+	title: 'forms/signin',
+	component: FormSignIn,
 }
 
 export default meta
-type Story = StoryObj<typeof FormSignUp>
+type Story = StoryObj<typeof FormSignIn>
 
 export const Default: Story = {
 	render: () => {
 		return (
 			<div className="space-y-6">
-				<FormSignUp />
+				<FormSignIn />
 			</div>
 		)
 	},
