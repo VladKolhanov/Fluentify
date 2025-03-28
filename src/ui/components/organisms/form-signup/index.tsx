@@ -12,9 +12,9 @@ import {
 	type SignupSchemaType,
 } from '@/shared/validators/users'
 import { Form } from '@/ui/components/atoms/form'
-import { FormAlert } from '@/ui/components/molecules/form-alert'
 import { FormField } from '@/ui/components/molecules/form-field'
 import { FormSubmitButton } from '@/ui/components/molecules/form-submit-button'
+import { StatusAlert } from '@/ui/components/molecules/status-alert'
 
 type Props = {
 	className?: string
@@ -41,7 +41,10 @@ export const FormSignUp = ({ className }: Props) => {
 	return (
 		<>
 			{actionState && (
-				<FormAlert status={actionState.status} message={actionState.message} />
+				<StatusAlert
+					status={actionState.status}
+					message={actionState.message}
+				/>
 			)}
 
 			<Form {...form}>

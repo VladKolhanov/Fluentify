@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { FormAlert } from '.'
+import { StatusAlert } from '.'
 
-type StatusType = React.ComponentProps<typeof FormAlert>['status'][]
+type StatusType = React.ComponentProps<typeof StatusAlert>['status'][]
 
-const meta: Meta<typeof FormAlert> = {
+const meta: Meta<typeof StatusAlert> = {
 	title: 'components/molecules/form-alert',
-	component: FormAlert,
+	component: StatusAlert,
 	tags: ['autodocs'],
 	argTypes: {
 		status: {
@@ -27,7 +27,7 @@ const meta: Meta<typeof FormAlert> = {
 	},
 }
 export default meta
-type Story = StoryObj<typeof FormAlert>
+type Story = StoryObj<typeof StatusAlert>
 
 export const Success: Story = {
 	args: {

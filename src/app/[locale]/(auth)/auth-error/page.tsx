@@ -15,8 +15,8 @@ import {
 	CardHeader,
 	CardTitle,
 } from '@/ui/components/atoms/card'
-import { FormAlert } from '@/ui/components/molecules/form-alert'
 import { Link } from '@/ui/components/molecules/link'
+import { StatusAlert } from '@/ui/components/molecules/status-alert'
 import { ArrowLeftIcon } from '@/ui/icons'
 
 export const metadata: Metadata = {
@@ -31,8 +31,8 @@ export default async function AuthError({ searchParams }: Props) {
 	const error = getAuthError(errorKey, t)
 
 	return (
-		<main className="container relative flex h-screen w-screen flex-col items-center justify-center">
-			<Card className="mx-auto w-full max-w-md">
+		<main className="h-3/4 md:h-2/3">
+			<Card className="mx-auto max-w-md">
 				<CardHeader>
 					<CardTitle className="text-center text-2xl">{error.title}</CardTitle>
 					<CardDescription className="text-center">
@@ -41,7 +41,7 @@ export default async function AuthError({ searchParams }: Props) {
 				</CardHeader>
 
 				<CardContent className="space-y-4">
-					<FormAlert status="error" message={error.description} />
+					<StatusAlert status="error" message={error.description} />
 
 					<p className="text-muted-foreground text-sm">{t('card.contactUs')}</p>
 				</CardContent>

@@ -11,7 +11,7 @@ type Props = {
 	message: Parameters<typeof generateActionState>['1']
 }
 
-export const FormAlert = ({ status, message, ...props }: Props) => {
+export const StatusAlert = ({ status, message, ...props }: Props) => {
 	return (
 		<Alert variant={status === 'error' ? 'destructive' : 'default'} {...props}>
 			{status === 'error' && <ShieldXIcon />}
