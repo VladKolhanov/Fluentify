@@ -1,19 +1,15 @@
 import { NextIntlClientProvider } from 'next-intl'
 import { type ReactNode } from 'react'
 
+import enMessages from '@/messages/en.json'
+
 type Props = {
 	children: ReactNode
-	locale?: string
-	messages?: Record<string, string>
 }
 
-export const I18nSyncProvider = ({
-	children,
-	locale = 'en',
-	messages = {},
-}: Props) => {
+export const I18nSyncProvider = ({ children }: Props) => {
 	return (
-		<NextIntlClientProvider locale={locale} messages={messages}>
+		<NextIntlClientProvider locale="en" messages={enMessages}>
 			{children}
 		</NextIntlClientProvider>
 	)
