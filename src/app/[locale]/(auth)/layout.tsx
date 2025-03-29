@@ -7,11 +7,12 @@ import { HomeIcon } from '@/ui/icons'
 
 export default function AuthLayout({ children }: LayoutProps) {
 	return (
-		<div className="grid h-dvh w-dvw place-items-center">
+		<div className="grid place-items-center">
 			<div className="absolute right-3 top-3 md:right-10 md:top-8 md:space-x-4">
 				<ThemeToggle />
 				<LanguageToggle />
 			</div>
+
 			<Link
 				href={Routes.Home}
 				variant="ghost"

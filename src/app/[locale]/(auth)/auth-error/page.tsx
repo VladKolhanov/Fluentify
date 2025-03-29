@@ -31,8 +31,8 @@ export default async function AuthError({ searchParams }: Props) {
 	const error = getAuthError(errorKey, t)
 
 	return (
-		<main className="h-3/4 md:h-2/3">
-			<Card className="mx-auto max-w-md">
+		<main className="px-sm grid h-dvh place-items-center">
+			<Card className="max-w-md">
 				<CardHeader>
 					<CardTitle className="text-center text-2xl">{error.title}</CardTitle>
 					<CardDescription className="text-center">

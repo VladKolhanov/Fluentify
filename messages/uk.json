@@ -45,6 +45,13 @@
 		"password": "Пароль",
 		"sendForm": "Увійти"
 	},
+	"NotFoundPage": {
+		"homeLink": "Головна",
+		"pageNotFound": "Сторінку не знайдено",
+		"message": "Сторінка, яку ви шукаєте, не існує або була переміщена.",
+		"subMessage": "Будь ласка, перевірте URL-адресу або поверніться на головну сторінку.",
+		"goBack": "Повернутися назад"
+	},
 	"errorUsersSchema": {
 		"firstNameRequired": "Ім'я є обов'язковим",
 		"lastNameRequired": "Прізвище є обов'язковим",

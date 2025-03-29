@@ -45,6 +45,13 @@
 		"password": "Password",
 		"sendForm": "Sign In"
 	},
+	"NotFoundPage": {
+		"homeLink": "Home",
+		"pageNotFound": "Page Not Found",
+		"message": "The page you are looking for doesn`t exist or has been moved.",
+		"subMessage": "Please check the URL or go back to the homepage.",
+		"goBack": "Go Back"
+	},
 	"errorUsersSchema": {
 		"firstNameRequired": "First Name is required",
 		"lastNameRequired": "Last Name is required",
